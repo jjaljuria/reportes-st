@@ -1,7 +1,7 @@
 import express from 'express'
 import morgan from 'morgan'
 import hbs from 'hbs'
-import IndexRouter from './routes/index.router.js'
+import SolicitudRouter from './routes/SolicitudRouter.js'
 
 const app = express()
 
@@ -15,6 +15,6 @@ app.engine('hbs', hbs.__express)
 app.use(morgan('dev'))
 
 // routers
-app.use(IndexRouter)
+app.use(SolicitudRouter)
 
 export default app
