@@ -16,6 +16,7 @@ app.engine('hbs', hbs.__express)
 app.use(StaticsRouter)
 
 // middlewares
+app.use(express.json())
 app.use(morgan('dev'))
 
 // routers
