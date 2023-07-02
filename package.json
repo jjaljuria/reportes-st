@@ -6,7 +6,9 @@
   "type": "module",
   "scripts": {
     "dev": "nodemon src/index.js",
-    "test": "cross-env NODE_OPTIONS=--experimental-vm-modules jest --watch src",
+    "test": "cross-env NODE_OPTIONS=--experimental-vm-modules jest src",
+    "test:watch": "cross-env NODE_OPTIONS=--experimental-vm-modules jest --watch src",
+    "coverage": "cross-env NODE_OPTIONS=--experimental-vm-modules jest - --coverage",
     "start": "node src/index.js"
   },
   "keywords": [],
