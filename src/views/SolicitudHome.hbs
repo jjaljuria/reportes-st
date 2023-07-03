@@ -1,7 +1,7 @@
 <main class="container mt-3">
     <h1 class="text-center">Solicitud de Soporte Técnico</h1>
     <div class="row">
-        <form action="/solicitud" method="get" class="col-8 mx-auto bg-light p-3 rounded">
+        <form id="formSolicitude" class="col-8 mx-auto bg-light p-3 rounded">
             <div class="mb-3">
                 <label class="form-label">Oficina</label>
                 <input type="text" name="oficina" class="form-control">
@@ -24,11 +24,13 @@
 
             <div class="mb-3">
                 <label class="form-label">Descripción de la solicitud</label>
-                <textarea type="text" name="descripcion" class="form-control" rows="5">
-                </textarea>
+                <textarea type="text" name="descripcion" class="form-control" rows="5"></textarea>
             </div>
             
             <button type="submit" class="btn btn-primary">Enviar</button>
         </form>
     </div>
 </main>
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="/js/SocketClient.js"></script>

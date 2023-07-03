@@ -9,7 +9,10 @@ const router = Router()
 // expongo los archivo de bootstrap del node_modules para que el cliente lo pueda utilizar
 const pathOfBootstrapCssFiles = fileURLToPath(new URL('../../node_modules/bootstrap/dist/css', import.meta.url))
 
-console.log(pathOfBootstrapCssFiles);
 router.use('/css', express.static(pathOfBootstrapCssFiles))
+
+// archivos publicos como img, css o js
+const pathOfPublicDir = fileURLToPath(new URL('../public', import.meta.url))
+router.use(express.static(pathOfPublicDir))
 
 export default router
