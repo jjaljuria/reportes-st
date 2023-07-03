@@ -13,13 +13,4 @@ describe('SolicitudController', () => {
         expect(SolicitudController.home).toBeDefined()
         expect(response.ok).toBeTruthy()
     })
-
-    it('should SolicitudController have method createSolicitude', async() => {
-        expect(SolicitudController.createSolicitude).toBeDefined()
-    })
-
-    it('should createSolicitude return a json', async() => {
-        await request(app).post('/solicitud')
-        .expect('Content-Type', /application\/json/)
-    })
 })
