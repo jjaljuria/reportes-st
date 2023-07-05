@@ -1,3 +1,7 @@
 export function home(req, res) {
-    res.render('SolicitudHome')
+    res.render('solicitudHome')
+}
+
+export function espera(req, res) {
+    return res.render('espera')
 }

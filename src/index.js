@@ -8,7 +8,7 @@ const io = getIO(server)
 io.on('connection', socket => {
     console.log('cannected')
     socket.on('solicitud', (form) => {
-        console.log(form)
+        socket.broadcast.emit('peticionEntrante', form)
     })
 })
 

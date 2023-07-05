@@ -1,5 +1,3 @@
-/* globals cy */
-
 describe('formulario de solicitud de soporte técnico', () => {
   it('should show page', () => {
     cy.visit('localhost:3000/solicitud')
@@ -10,7 +8,7 @@ describe('formulario de solicitud de soporte técnico', () => {
     cy.contains('Solicitud de Soporte Técnico')
   })
 
-  it.only('should have fields "oficina, coordinacion, usuario, solicitado por, descripcion de la solicitud" and button "Enviar"', () => {
+  it('should have fields "oficina, coordinacion, usuario, solicitado por, descripcion de la solicitud" and button "Enviar"', () => {
     cy.visit('localhost:3000/solicitud')
     cy.get('[name="oficina"]').type('otic')
     cy.get('[name="coordinacion"]').type('soporte')

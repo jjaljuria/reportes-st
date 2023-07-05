@@ -13,4 +13,13 @@ describe('SolicitudController', () => {
         expect(SolicitudController.home).toBeDefined()
         expect(response.ok).toBeTruthy()
     })
+
+    it('should SolicitudController have method espera', async() => {
+        expect(SolicitudController.espera).toBeDefined()
+    })
+
+    it('should have route GET /espera', async() => {
+        await request(app).get('/espera')
+        .expect(200)
+    })
 })
