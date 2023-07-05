@@ -1,5 +1,5 @@
 const socket = io()
-const form = document.getElementById('formSolicitude')
+const form = document.getElementById('formRequest')
 
 form.addEventListener('submit', (e) => {
     e.preventDefault()
