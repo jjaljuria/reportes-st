@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   "development": {
     "username": "root",
     "password": null,
@@ -9,15 +9,15 @@ module.exports = {
   "test": {
     "username": "root",
     "password": null,
-    "database": "database_test",
+    "database": "reportes-st",
     "host": "127.0.0.1",
-    "dialect": "mysql"
+    "dialect": "mariadb"
   },
   "production": {
     "username": "root",
     "password": null,
     "database": "database_production",
     "host": "127.0.0.1",
-    "dialect": "mysql"
+    "dialect": "mariadb"
   }
 }

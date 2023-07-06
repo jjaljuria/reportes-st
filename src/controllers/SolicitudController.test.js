@@ -1,6 +1,7 @@
 import * as SolicitudController from './SolicitudController.js'
 import request from 'supertest'
 import app from '../app.js'
+import db from '../database/models/index.js';
 
 describe('SolicitudController', () => {
     it('should SolicitudController exists', () => {
@@ -20,6 +21,12 @@ describe('SolicitudController', () => {
 
     it('should have route GET /espera', async() => {
         await request(app).get('/espera')
+        .expect(200)
+    })
+
+    it('should have createRequest and route POST /solicitud', async ()=>{
+        expect(SolicitudController.createRequest).toBeDefined()
+        await request(app).post('/solicitud')
         .expect(200)
     })
 })
