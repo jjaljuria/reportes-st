@@ -1,7 +1,10 @@
 import * as SolicitudController from './SolicitudController.js'
 import request from 'supertest'
 import app from '../app.js'
-import db from '../database/models/index.js';
+import models from '../database/models';
+
+const {Request} = models
+console.log(Request.findAll);
 
 describe('SolicitudController', () => {
     it('should SolicitudController exists', () => {
