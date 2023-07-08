@@ -32,6 +32,7 @@
     "@testing-library/dom": "^9.3.1",
     "babel-register": "^6.26.0",
     "cross-env": "^7.0.3",
+    "cypress": "^12.17.0",
     "eslint": "^8.43.0",
     "eslint-plugin-jest": "^27.2.2",
     "eslint-plugin-jest-dom": "^5.0.1",

@@ -1,7 +1,12 @@
 <h1>Soporte</h1>
 <main class="container">
-    <section class="mx-auto border" id="root">
+    <h3>Solicitudes:</h3>
         
+    <section class="mx-auto border" id="root">
+        {{#each request}}
+            <h3>id:{{this.id}}</h3>
+            <p>{{this.descripcion}}</p>
+        {{/each}}
     </section>
 </main>
 

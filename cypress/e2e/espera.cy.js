@@ -8,5 +8,6 @@ describe('pagina de esperar las solicitudes', () => {
     it('should text soporte', ()=>{
         cy.visit(url)
         cy.contains('Soporte')
+        cy.contains('Solicitudes')
     })
 })
