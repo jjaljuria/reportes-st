@@ -2,11 +2,18 @@
 <main class="container">
     <h3>Solicitudes:</h3>
         
-    <section class="mx-auto border" id="root">
-        {{#each request}}
-            <h3>id:{{this.id}}</h3>
-            <p>{{this.descripcion}}</p>
-        {{/each}}
+    <section class="" id="root">
+        <ul class="list-group">
+            {{#each request}}
+                <li class="list-group-item">
+                    <h5>Oficina: {{this.oficina}} </h5>
+                    <h5>Solicitante: {{this.solicitado}}</h5>
+                        
+                    <p>{{this.descripcion}}</p>
+                    <button class="btn btn-primary">Solicionado</button>
+                </li>
+            {{/each}}
+        </ul>
     </section>
 </main>
 
