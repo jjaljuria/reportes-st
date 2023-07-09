@@ -1,6 +1,11 @@
+import {jest} from '@jest/globals'
 import * as SolicitudController from './SolicitudController.js'
 import request from 'supertest'
 import app from '../app.js'
+import Request from '../database/models/request.js';
+
+jest.mock('../database/models/request.js')
+console.log(Request.findAll);
 
 
 describe('SolicitudController', () => {

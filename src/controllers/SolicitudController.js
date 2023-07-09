@@ -1,6 +1,5 @@
-import models from '../database/models/index.cjs'
+import Request from '../database/models/request.js'
 
-const {Request} = models
 
 export function home(req, res) {
     res.render('solicitudHome')

@@ -60,5 +60,9 @@
     "globals": [
       "cy"
     ]
+  },
+  "jest":{
+    "verbose": true,
+    "transform": {}
   }
 }
