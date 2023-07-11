@@ -30,6 +30,10 @@ module.exports = {
       realizado:{
         type: Sequelize.STRING
       },
+      atendido: {
+        type: Sequelize.BOOLEAN,
+        defaultValue: false
+      },
 
       createdAt: {
         allowNull: false,

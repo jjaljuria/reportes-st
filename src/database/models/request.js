@@ -8,7 +8,8 @@ const modelRequest = sequelize.define('Request', {
   usuario: DataTypes.STRING,
   solicitado: DataTypes.STRING,
   descripcion: DataTypes.STRING,
-  departamento: DataTypes.STRING
+  departamento: DataTypes.STRING,
+  atendido: DataTypes.BOOLEAN
 },{
 
 })
