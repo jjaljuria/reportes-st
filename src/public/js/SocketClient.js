@@ -1,17 +1,25 @@
 const socket = io()
 const form = document.getElementById('formRequest')
 
-form.addEventListener('submit', (e) => {
+form.addEventListener('submit', async (e) => {
     e.preventDefault()
     const data = serialize(form)
-    socket.emit('solicitud', data)
+    await fetch('/solicitud', {
+        method: 'post',
+        headers:{
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    })
+
+    form.reset()
 })
 
 function serialize(formData) {
-    const data = []
+    const data = {}
     for (const file of formData) {
         if (file instanceof HTMLInputElement || file instanceof HTMLTextAreaElement) {
-            data.push({ name:file.name, value: file.value })
+            data[file.name] = file.value
         }
     }
     return data

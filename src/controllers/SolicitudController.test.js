@@ -38,8 +38,11 @@ describe('SolicitudController', () => {
     })
 
     it('should have createRequest and route POST /solicitud', async ()=>{
+        Request.create = jest.fn()
+
         expect(SolicitudController.createRequest).toBeDefined()
-        await request(app).post('/solicitud')
-        .expect(200)
+        await request(app).post('/solicitud').expect(201)
+
+        expect(Request.create).toHaveBeenCalled()
     })
 })
