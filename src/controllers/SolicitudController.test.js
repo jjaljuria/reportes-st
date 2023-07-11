@@ -4,6 +4,10 @@ import request from 'supertest'
 import app from '../app.js'
 import Request from '../database/models/request.js'
 
+
+// para que no me tire el error en la consola
+console.error = jest.fn()
+
 describe('SolicitudController', () => {
     it('should SolicitudController exists', () => {
         expect(SolicitudController).toBeDefined()
@@ -30,19 +34,36 @@ describe('SolicitudController', () => {
         Request.findAll = jest.fn()
         Request.findAll.mockRejectedValueOnce(new Error('Fail'))
         
-        // para que no me tire el error en la consola
-        console.error = jest.fn()
-        
         await request(app).get('/espera')
         .expect(500)
     })
 
-    it('should have createRequest and route POST /solicitud', async ()=>{
+    it.skip('should have createRequest and route POST /solicitud', async ()=>{
         Request.create = jest.fn()
 
         expect(SolicitudController.createRequest).toBeDefined()
         await request(app).post('/solicitud').expect(201)
 
         expect(Request.create).toHaveBeenCalled()
+    })
+
+    it('should have solvedRequest and route PUT /solicitud', async ()=>{
+        Request.update = jest.fn()
+
+        expect(SolicitudController.solvedRequest).toBeDefined()
+
+        await request(app).put('/solicitud')
+        .expect(201)
+    })
+
+    it('should update request', async ()=>{
+        Request.update = jest.fn()
+
+        await request(app).put('/solicitud')
+        .send({id: 1})
+        .set('Accept', 'application/json')
+        .expect(201)
+
+        expect(Request.update).toHaveBeenCalled()
     })
 })

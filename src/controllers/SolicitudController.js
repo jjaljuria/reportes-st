@@ -51,3 +51,20 @@ export async function createRequest(req, res){
         return res.status(500).end()
     }
 }
+
+export async function solvedRequest(req, res){
+    const {id} = req.body
+    
+    try{
+        await Request.update({atendido: true}, {
+            where: {
+                id
+            }
+        })
+
+        res.status(201).end()
+    }catch(error){
+        console.error(error);
+        res.status(500).end()
+    }
+}
