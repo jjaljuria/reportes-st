@@ -5,12 +5,12 @@
     <section>
         <ul class="list-group" id="listRequest">
             {{#each request}}
-                <li class="list-group-item">
+                <li class="list-group-item" id="request-{{this.id}}">
                     <h5>Oficina: {{this.oficina}} </h5>
                     <h5>Solicitante: {{this.solicitado}}</h5>
                         
                     <p>{{this.descripcion}}</p>
-                    <button class="btn btn-primary">Solicionado</button>
+                    <button class="btn btn-primary" onclick="atendidoChange({{this.id}})">Solicionado</button>
                 </li>
             {{/each}}
         </ul>
@@ -18,4 +18,4 @@
 </main>
 
 <script src="/socket.io/socket.io.js"></script>
-<script src="/js/SocketEspera.js"></script>
+<script src="/js/espera.js"></script>

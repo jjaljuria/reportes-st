@@ -8,7 +8,9 @@ export function home(req, res) {
 
 export async function espera(req, res) {
     try{
-        const request = await Request.findAll()
+        const request = await Request.findAll({
+            where: { atendido: false}
+        })
         res.render('espera', {request})
     }catch(error){
         console.error(error)
@@ -29,7 +31,7 @@ export async function createRequest(req, res){
     
     
     try{
-        await Request.create({
+        const newRequest = await Request.create({
             oficina,
             coordinacion,
             usuario,
@@ -37,13 +39,7 @@ export async function createRequest(req, res){
             descripcion,
         })
 
-        getIO().emit('newRequest', {
-            oficina,
-            coordinacion,
-            usuario,
-            solicitado,
-            descripcion,
-        })
+        getIO().emit('newRequest', newRequest)
 
         res.status(201).end()
     }catch(error){
