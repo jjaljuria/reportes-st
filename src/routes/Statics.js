@@ -15,4 +15,8 @@ router.use('/css', express.static(pathOfBootstrapCssFiles))
 const pathOfPublicDir = fileURLToPath(new URL('../public', import.meta.url))
 router.use(express.static(pathOfPublicDir))
 
+// archivos de toastify 
+const pathOfToastifyFiles = fileURLToPath(new URL('../../node_modules/toastify-js/src', import.meta.url))
+router.use('/toastify', express.static(pathOfToastifyFiles))
+
 export default router
