@@ -8,11 +8,11 @@ describe.only('load static files', () => {
     })
 
     it('should public/js files ready for client', async() => {
-        await request(app).get('/js/SocketClient.js')
+        await request(app).get('/js/solicitud.js')
         .expect(200)
     })
 
-    it.only('should toastify-js files ready for client', async ()=>{
+    it('should toastify-js files ready for client', async ()=>{
         await request(app).get('/toastify/toastify.css')
         .expect(200)
 

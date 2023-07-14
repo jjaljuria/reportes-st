@@ -3,7 +3,7 @@ import { getIO } from '../socket.js'
 
 export function home(req, res) {
 
-    res.render('solicitudHome')
+    res.render('solicitud')
 }
 
 export async function espera(req, res) {
