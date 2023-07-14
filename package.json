@@ -8,6 +8,7 @@
     "dev": "nodemon src/index.js --ignore src/public cypress",
     "test": "cross-env NODE_OPTIONS=--experimental-vm-modules  jest src",
     "test:watch": "cross-env NODE_OPTIONS=--experimental-vm-modules jest --watch src",
+    "test:e2e": "cypress open",
     "coverage": "cross-env NODE_OPTIONS=--experimental-vm-modules jest - --coverage",
     "start": "node src/index.js"
   },

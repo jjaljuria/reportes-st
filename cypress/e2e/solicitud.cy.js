@@ -18,4 +18,17 @@ describe('formulario de solicitud de soporte técnico', () => {
 
     cy.contains('Enviar').click()
   })
+  
+  it('should show toast with text "Solicitud Enviada"', ()=>{
+    cy.visit('localhost:3000/solicitud')
+    cy.get('[name="oficina"]').type('otic')
+    cy.get('[name="coordinacion"]').type('soporte')
+    cy.get('[name="usuario"]').type('jose')
+    cy.get('[name="solicitado"]').type('jose')
+    cy.get('[name="descripcion"]').type('problemas')
+
+    cy.contains('Enviar').click()
+    
+    cy.contains('Solicitud Enviada')
+  })
 })
