@@ -3,8 +3,11 @@ import morgan from 'morgan'
 import hbs from 'hbs'
 import SolicitudRouter from './routes/SolicitudRouter.js'
 import StaticsRouter from './routes/Statics.js'
+import handlebarsLayouts from 'handlebars-layouts'
+
 
 const app = express()
+hbs.registerHelper(handlebarsLayouts(hbs.handlebars))
 
 // settings
 app.set('PORT', 3000)
