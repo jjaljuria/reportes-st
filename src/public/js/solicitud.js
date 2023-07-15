@@ -4,13 +4,13 @@ const form = document.getElementById('formRequest')
 form.addEventListener('submit', async (e) => {
     e.preventDefault()
     const data = serialize(form)
-    // await fetch('/solicitud', {
-    //     method: 'post',
-    //     headers:{
-    //         'Content-Type': 'application/json'
-    //     },
-    //     body: JSON.stringify(data)
-    // })
+    await fetch('/solicitud', {
+        method: 'post',
+        headers:{
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    })
 
 
     Toastify({
