@@ -13,14 +13,14 @@ form.addEventListener('submit', async (e) => {
     })
 
 
-    // Toastify({
-    //     text: "Solicitud Enviada",
-    //     className: 'bg-success fs-3',
-    //     style: {
-    //         background: "none",
-    //       }
-    //   }).showToast();
-    // form.reset()
+    Toastify({
+        text: "Solicitud Enviada",
+        className: 'bg-success fs-3',
+        style: {
+            background: "none",
+          }
+      }).showToast();
+    form.reset()
 })
 
 function serialize(formData) {
