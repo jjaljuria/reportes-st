@@ -31,4 +31,12 @@ describe('formulario de solicitud de soporte técnico', () => {
     
     cy.contains('Solicitud Enviada')
   })
+
+  it('should form have validates', ()=>{
+    cy.visit('localhost:3000/solicitud')
+    
+    cy.contains('Enviar').click()
+
+    cy.contains('Necesita llenar este campo')
+  })
 })
