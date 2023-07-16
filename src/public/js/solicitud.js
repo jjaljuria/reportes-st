@@ -1,5 +1,9 @@
 const socket = io()
+
+// Variables
 const form = document.getElementById('formRequest')
+const usuario = document.getElementById('usuario')
+const solicitado = document.getElementById('solicitado')
 
 form.addEventListener('submit', async (e) => {
     e.preventDefault()
@@ -52,3 +56,16 @@ function serialize(formData) {
       }, false)
     })
   })()
+
+function usuarioIgualQueSolicitado(){
+    const inputHandler = (e) =>{
+        solicitado.value = e.target.value
+    }
+
+    usuario.addEventListener('input', inputHandler)
+
+    solicitado.addEventListener('focus', (e) =>{
+        usuario.removeEventListener('input', inputHandler)
+    })
+}
+usuarioIgualQueSolicitado()
