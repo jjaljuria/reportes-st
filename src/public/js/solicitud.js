@@ -1,5 +1,3 @@
-const socket = io()
-
 // Variables
 const form = document.getElementById('formRequest')
 const usuario = document.getElementById('usuario')
@@ -15,14 +13,14 @@ form.addEventListener('submit', async (e) => {
         return;
     }
     
-    // const data = serialize(form)
-    // await fetch('/solicitud', {
-    //     method: 'post',
-    //     headers:{
-    //         'Content-Type': 'application/json'
-    //     },
-    //     body: JSON.stringify(data)
-    // })
+    const data = serialize(form)
+    await fetch('/solicitud', {
+        method: 'post',
+        headers:{
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    })
 
 
     Toastify({
