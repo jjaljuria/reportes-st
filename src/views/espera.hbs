@@ -4,13 +4,13 @@
         
     <section>
         <ul class="list-group" id="listRequest">
-            {{#each request}}
-                <li class="list-group-item" id="request-{{this.id}}">
-                    <h5>Oficina: {{this.oficina}} </h5>
-                    <h5>Solicitante: {{this.solicitado}}</h5>
-                        
-                    <p>{{this.descripcion}}</p>
-                    <button class="btn btn-primary" onclick="atendidoChange({{this.id}})">Solicionado</button>
+            {{#each requests as |request|}}
+                <li class="list-group-item" id="request-{{request.id}}">
+                    <b>Solicitante:</b> {{request.solicitado}} <br>
+                    <b>Usuario:</b> {{request.usuario}} <br>
+                    <b>Oficina:</b> {{request.oficina}} <br>
+                    <p>{{request.descripcion}}</p>
+                    <button class="btn btn-primary" onclick="atendidoChange({{request.id}})">Solicionado</button>
                 </li>
             {{/each}}
         </ul>

@@ -8,10 +8,10 @@ export function home(req, res) {
 
 export async function espera(req, res) {
     try{
-        const request = await Request.findAll({
+        const requests = await Request.findAll({
             where: { atendido: false}
         })
-        res.render('espera', {request})
+        res.render('espera', {requests})
     }catch(error){
         console.error(error)
         return res.status(500).end()
