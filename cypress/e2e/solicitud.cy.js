@@ -1,8 +1,5 @@
 describe('formulario de solicitud de soporte técnico', () => {
-  it('should show page', () => {
-    cy.visit('localhost:3000/solicitud')
-  })
-
+  
   it('should have title "Solicitud de Soporte Técnico"', () => {
     cy.visit('localhost:3000/solicitud')
     cy.contains('Solicitud de Soporte Técnico')
