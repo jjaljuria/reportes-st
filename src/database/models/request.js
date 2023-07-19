@@ -15,7 +15,6 @@ const modelRequest = sequelize.define('Request', {
 },{
 
 })
-modelRequest.User = Supporter.belongsTo(modelRequest)
 
 export default modelRequest;
 

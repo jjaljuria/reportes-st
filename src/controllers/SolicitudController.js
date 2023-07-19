@@ -1,4 +1,5 @@
 import Request from '../database/models/request.js'
+import Supporter from '../database/models/supporter.js'
 import { getIO } from '../socket.js'
 
 export function home(req, res) {
@@ -8,10 +9,16 @@ export function home(req, res) {
 
 export async function espera(req, res) {
     try{
+        const supporters = await Supporter.findAll()
+
         const requests = await Request.findAll({
-            where: { atendido: false}
+            where: { atendido: false},
+            order: [
+                ['id', 'DESC']
+            ]
         })
-        res.render('espera', {requests})
+
+        res.render('espera', {requests, supporters})
     }catch(error){
         console.error(error)
         return res.status(500).end()
@@ -49,10 +56,10 @@ export async function createRequest(req, res){
 }
 
 export async function solvedRequest(req, res){
-    const {id} = req.body
+    const {id, idSupporter} = req.body
     
     try{
-        await Request.update({atendido: true}, {
+        await Request.update({atendido: true, realizado: idSupporter}, {
             where: {
                 id
             }

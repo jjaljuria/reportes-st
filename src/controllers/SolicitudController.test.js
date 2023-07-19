@@ -3,6 +3,7 @@ import * as SolicitudController from './SolicitudController.js'
 import request from 'supertest'
 import app from '../app.js'
 import Request from '../database/models/request.js'
+import Supporter from '../database/models/supporter.js'
 
 
 // para que no me tire el error en la consola
@@ -26,12 +27,14 @@ describe('SolicitudController', () => {
 
     it('should have route GET /espera and return 200', async() => {
         Request.findAll = jest.fn(()=> Promise.resolve([]))
+        Supporter.findAll = jest.fn(()=> Promise.resolve([]))
         await request(app).get('/espera')
         .expect(200)
     })
 
     it('should GET /espera return 500 when throw error with database', async ()=>{
         Request.findAll = jest.fn()
+        Supporter.findAll = jest.fn(()=> Promise.resolve([]))
         Request.findAll.mockRejectedValueOnce(new Error('Fail'))
         
         await request(app).get('/espera')
@@ -60,7 +63,7 @@ describe('SolicitudController', () => {
         Request.update = jest.fn()
 
         await request(app).put('/solicitud')
-        .send({id: 1})
+        .send({id: 1, idSupporter: 1})
         .set('Accept', 'application/json')
         .expect(201)
 
