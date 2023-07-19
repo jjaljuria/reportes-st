@@ -15,7 +15,6 @@ module.exports = {
         usuario: faker.person.fullName(),
         solicitado: faker.person.fullName(),
         descripcion: faker.lorem.paragraph(),
-        realizado: faker.person.fullName(),
         departamento: 'Soporte Tecnico',
         createdAt: faker.date.recent(),
         updatedAt: faker.date.recent()

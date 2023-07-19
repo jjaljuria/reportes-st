@@ -1,6 +1,7 @@
 'use strict';
 import sequelize from './conexion.js'
 import { DataTypes } from 'sequelize'
+import Supporter from './supporter.js';
 
 const modelRequest = sequelize.define('Request', {
   oficina: DataTypes.STRING,
@@ -9,10 +10,12 @@ const modelRequest = sequelize.define('Request', {
   solicitado: DataTypes.STRING,
   descripcion: DataTypes.STRING,
   departamento: DataTypes.STRING,
+  realizado: DataTypes.INTEGER,
   atendido: DataTypes.BOOLEAN
 },{
 
 })
+modelRequest.User = Supporter.belongsTo(modelRequest)
 
 export default modelRequest;
 

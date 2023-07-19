@@ -28,7 +28,13 @@ module.exports = {
         type: Sequelize.STRING
       },
       realizado:{
-        type: Sequelize.STRING
+        type: Sequelize.INTEGER,
+        references:{
+          model:{
+            tableName: 'Supporters',
+          },
+          key: 'id'
+        }
       },
       atendido: {
         type: Sequelize.BOOLEAN,
