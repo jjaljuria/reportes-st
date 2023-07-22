@@ -5,7 +5,6 @@ import app from '../app.js'
 import Request from '../database/models/request.js'
 import Supporter from '../database/models/supporter.js'
 
-
 // para que no me tire el error en la consola
 console.error = jest.fn()
 
