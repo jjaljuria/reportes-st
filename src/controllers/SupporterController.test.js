@@ -28,4 +28,22 @@ describe('SupporterController', ()=>{
 
         expect(Supporter.create).toHaveBeenCalledWith(params)
     })
+
+    it('should show page GET /supporter', async ()=>{
+        Supporter.findAll = jest.fn(()=> Promise.resolve([]))
+        await request(app).get('/supporter')
+        .expect(200)
+    })
+
+    it('should delete dupporter with DELETE /supporter', async ()=>{
+        Supporter.destroy = jest.fn(()=> Promise.resolve(true))
+        Supporter.findByPk = jest.fn(()=> Promise.resolve({destroy: Supporter.destroy}))
+        
+        await request(app)
+        .delete('/supporter')
+        .expect(201)
+
+        expect(Supporter.destroy).toHaveBeenCalled()
+        expect(Supporter.findByPk).toHaveBeenCalled()
+    })
 })
