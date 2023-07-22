@@ -3,6 +3,7 @@ import morgan from 'morgan'
 import hbs from 'hbs'
 import SolicitudRouter from './routes/SolicitudRouter.js'
 import StaticsRouter from './routes/Statics.js'
+import SupporterController from './routes/SupporterRouter.js';
 import handlebarsLayouts from 'handlebars-layouts'
 
 
@@ -24,5 +25,6 @@ app.use(morgan('dev'))
 
 // routers
 app.use(SolicitudRouter)
+app.use(SupporterController)
 
 export default app
