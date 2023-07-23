@@ -17,7 +17,7 @@ describe('SupporterController', ()=>{
 
         await request(app).post('/supporter')
         .send(params)
-        .expect(302)
+        .expect(201)
 
         expect(Supporter.create).toHaveBeenCalledWith(params)
     })
@@ -34,7 +34,7 @@ describe('SupporterController', ()=>{
         
         await request(app)
         .delete('/supporter')
-        .expect(201)
+        .expect(200)
 
         expect(Supporter.destroy).toHaveBeenCalled()
         expect(Supporter.findByPk).toHaveBeenCalled()
