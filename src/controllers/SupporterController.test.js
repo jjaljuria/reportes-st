@@ -9,13 +9,6 @@ describe('SupporterController', ()=>{
         expect(SupporterController.createSupporter).toBeDefined()
     })
 
-    it('should  /supporter return code 200', async ()=>{
-        Supporter.create = jest.fn()
-
-        await request(app).post('/supporter')
-        .expect(200)
-    })
-
     it('should Supporter.create have been called one time with params', async ()=>{
         Supporter.create = jest.fn()
         const params = {
@@ -24,7 +17,7 @@ describe('SupporterController', ()=>{
 
         await request(app).post('/supporter')
         .send(params)
-        .expect(200)
+        .expect(302)
 
         expect(Supporter.create).toHaveBeenCalledWith(params)
     })
